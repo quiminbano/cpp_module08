@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 17:38:40 by corellan          #+#    #+#             */
-/*   Updated: 2023/07/04 21:57:20 by corellan         ###   ########.fr       */
+/*   Updated: 2023/07/05 01:24:48 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,10 @@ int	main(void)
 	int		i;
 
 	i = 0;
-	vector.addNumber(20);
-	vector.addNumber(2);
-	vector.addNumber(50);
-	vector.addNumber(10);
-	vector.addNumber(25);
+	vector.addInARowRandomNumbers(200);
 	try
 	{
-		vector.addNumber(6);
+		vector.addInARowRandomNumbers(200);
 	}
 	catch(const std::exception& e)
 	{
@@ -35,7 +31,7 @@ int	main(void)
 	std::cout << "the longestSpan is: " << vector.longestSpan() << std::endl;
 	std::cout << "the shortestSpan is: " << vector.shortestSpan() << std::endl << std::endl;
 	std::cout << "The content of the class Vector is:" << std::endl;
-	while (i < 6)
+	while (i < 101)
 	{
 		try
 		{

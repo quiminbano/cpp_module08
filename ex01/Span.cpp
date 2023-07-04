@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:47:50 by corellan          #+#    #+#             */
-/*   Updated: 2023/07/04 22:19:44 by corellan         ###   ########.fr       */
+/*   Updated: 2023/07/05 01:20:48 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ Span::Span(void) : _n(0), _store(0)
 Span::Span(unsigned int n) : _n(n), _store(0)
 {
 	std::cout << "Constructor called for the Span class passing " << n << " as a argument" << std::endl;
+	if (Span::_flag == 0)
+	{
+		std::srand(std::time(NULL));
+		Span::_flag = 1;
+	}
 	if (n > 0)
 		this->_vector.reserve(n);
 	return ;
@@ -99,6 +104,21 @@ int	Span::shortestSpan(void)
 	return (range);
 }
 
+void	Span::addInARowRandomNumbers(unsigned int range)
+{
+	if ((this->_n == 0) || (this->_store >= this->_n))
+		throw (ErrorAccessException());
+	Span::_range = range;
+	std::generate_n(std::back_inserter(this->_vector), (this->_n - this->_store), Span::_generateRandomNumbers);
+	this->_store = this->_n;
+	return ;
+}
+
+int	Span::_generateRandomNumbers(void)
+{
+	return ((std::rand() % Span::_range));
+}
+
 std::vector<int>	Span::getVector(void) const
 {
 	return (this->_vector);
@@ -123,3 +143,6 @@ const char	*Span::LongestShortestException::what(void) const throw ()
 {
 	return ("Dude!! It's impossible to determine the longest or the shortest span with just one number");
 }
+
+int				Span::_flag = 0;
+unsigned int	Span::_range = 0;

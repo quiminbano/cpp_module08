@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 10:31:53 by corellan          #+#    #+#             */
-/*   Updated: 2023/07/04 22:16:47 by corellan         ###   ########.fr       */
+/*   Updated: 2023/07/05 01:19:26 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,18 @@
 # include <iostream>
 # include <algorithm>
 # include <stdexcept>
+# include <iterator>
 
 class Span
 {
 private:
-	unsigned int		_n;
-	unsigned int		_store;
-	std::vector<int>	_vector;
+	unsigned int				_n;
+	unsigned int				_store;
+	std::vector<int>			_vector;
+	static int					_flag;
+	static unsigned int			_range;
+
+	static int	_generateRandomNumbers(void);
 
 public:
 
@@ -35,7 +40,7 @@ public:
 	{
 		virtual const char	*what(void) const throw ();
 	};
-
+	
 	Span(void);
 	Span(unsigned int n);
 	Span(Span const &rhs);
@@ -47,6 +52,7 @@ public:
 	void				addNumber(int n);
 	int					shortestSpan(void);
 	int					longestSpan(void);
+	void				addInARowRandomNumbers(unsigned int range);
 	std::vector<int>	getVector(void) const;
 	unsigned int		getN(void) const;
 	unsigned int		getStore(void) const;
