@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 10:31:53 by corellan          #+#    #+#             */
-/*   Updated: 2023/07/04 18:44:04 by corellan         ###   ########.fr       */
+/*   Updated: 2023/07/04 22:16:47 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,9 @@ private:
 	unsigned int		_store;
 	std::vector<int>	_vector;
 
-	Span(Span const &rhs);
-
-	Span	&operator=(Span const &rhs);
-
 public:
 
-	class	ErrorException : public std::exception
+	class	ErrorAccessException : public std::exception
 	{
 		virtual const char	*what(void) const throw ();
 	};
@@ -42,13 +38,18 @@ public:
 
 	Span(void);
 	Span(unsigned int n);
+	Span(Span const &rhs);
 	~Span(void);
 
-	int	&operator[](unsigned int i);
+	Span				&operator=(Span const &rhs);
+	int					&operator[](unsigned int i);
 
-	void	addNumber(int n);
-	int		shortestSpan(void);
-	int		longestSpan(void);
+	void				addNumber(int n);
+	int					shortestSpan(void);
+	int					longestSpan(void);
+	std::vector<int>	getVector(void) const;
+	unsigned int		getN(void) const;
+	unsigned int		getStore(void) const;
 };
 
 #endif

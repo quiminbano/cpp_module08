@@ -6,19 +6,25 @@
 #    By: corellan <corellan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/09 10:37:08 by corellan          #+#    #+#              #
-#    Updated: 2023/07/04 18:23:42 by corellan         ###   ########.fr        #
+#    Updated: 2023/07/04 22:20:28 by corellan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = span
 
+NAME2 = span_subject
+
 SRC = main.cpp Span.cpp
+
+SRC2 = main_subject.cpp Span.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
+OBJ2 = $(SRC2:.cpp=.o)
+
 CC = c++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g -static-libsan
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 RED = \033[0;31m
 
@@ -34,16 +40,20 @@ $(NAME) : $(OBJ)
 		@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 		@echo "$(GREEN)The binary was created successfully$(NC)"
 
+$(NAME2) : $(OBJ2)
+		@$(CC) $(FLAGS) $(OBJ2) -o $(NAME2)
+		@echo "$(GREEN)The binary was created successfully$(NC)"
+
 %.o: %.cpp
 		@$(CC) $(FLAGS) -I. -c $< -o $@
 		@echo "$(GREEN)Object file created.$(NC)"
 
 clean:
-		@rm -f $(OBJ)
+		@rm -f $(OBJ) $(OBJ2)
 		@echo "$(RED)Object files deleted$(NC)"
 
 fclean: clean
-		@rm -rf $(NAME)
+		@rm -rf $(NAME) $(NAME2)
 		@echo "$(RED)The binary was deleted successfully$(NC)"
 
 re: fclean all
