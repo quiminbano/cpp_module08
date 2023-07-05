@@ -5,30 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 17:38:40 by corellan          #+#    #+#             */
-/*   Updated: 2023/07/05 13:51:26 by corellan         ###   ########.fr       */
+/*   Created: 2023/07/05 15:06:22 by corellan          #+#    #+#             */
+/*   Updated: 2023/07/05 16:28:39 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Span.hpp"
+#include "MutantStack.hpp"
 
 int	main(void)
 {
-	Span	vector(1000000);
-	int		i;
-
-	i = 0;
-	vector.addInARowRandomNumbers(1000000);
-	try
+	MutantStack<int>	stack;
+	stack.push(3);
+	stack.push(2);
+	stack.push(1);
+	MutantStack<int>::iterator it = stack.begin();
+	while (it != stack.end())
 	{
-		vector.addInARowRandomNumbers(200);
+		std::cout << *it << std::endl;
+		it++;
 	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	std::cout << "the longestSpan is: " << vector.longestSpan() << std::endl;
-	std::cout << "the shortestSpan is: " << vector.shortestSpan() << std::endl << std::endl;
 	return (0);
 }
