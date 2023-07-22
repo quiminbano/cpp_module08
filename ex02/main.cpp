@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:06:22 by corellan          #+#    #+#             */
-/*   Updated: 2023/07/22 14:26:59 by corellan         ###   ########.fr       */
+/*   Updated: 2023/07/22 18:43:08 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	main(void)
 	stack.push(3);
 	stack.push(2);
 	stack.push(1);
+	stack.push(500);
+	stack.push(23483247);
 	MutantStack<int>::iterator it = stack.begin();
 	while (it != stack.end())
 	{
