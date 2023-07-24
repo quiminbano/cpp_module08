@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:55:33 by corellan          #+#    #+#             */
-/*   Updated: 2023/07/22 14:27:03 by corellan         ###   ########.fr       */
+/*   Updated: 2023/07/24 12:53:19 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ public:
 
 	iterator	begin(void);
 	iterator	end(void);
-	const_iterator	cbegin(void);
-	const_iterator	cend(void);
+	const_iterator	cbegin(void) const;
+	const_iterator	cend(void) const;
 
 private:
 

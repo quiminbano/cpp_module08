@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 17:38:40 by corellan          #+#    #+#             */
-/*   Updated: 2023/07/22 14:26:38 by corellan         ###   ########.fr       */
+/*   Updated: 2023/07/24 14:00:34 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	main(void)
 {
 	Span	vector(1000000);
-	int		i;
 
-	i = 0;
+	vector.addNumber(50);
+	vector.addNumber(200);
 	vector.addInARowRandomNumbers(1000000);
 	try
 	{
