@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:47:50 by corellan          #+#    #+#             */
-/*   Updated: 2023/07/24 14:00:47 by corellan         ###   ########.fr       */
+/*   Updated: 2023/07/24 16:17:24 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,13 +118,12 @@ void	Span::addInARowRandomNumbers(unsigned int range)
 	}
 	if ((this->_n == 0) || (this->_store >= this->_n))
 		throw (ErrorAccessException());
-	std::cout << i << std::endl;
 	Span::_range = range;
 	std::generate_n(std::back_inserter(this->_vector), (this->_n - i), Span::_generateRandomNumbers);
 	this->_store = this->_n;
 	return ;
 }
-
+                                                                                                                                           
 int	Span::_generateRandomNumbers(void)
 {
 	return ((std::rand() % Span::_range));
